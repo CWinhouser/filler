@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 11:28:40 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/07/24 09:46:18 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/09 14:10:35 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,28 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int	main (int ac, char **av)
+int	main (void)
 {
-	(void)ac;
-	int		fd;
-	int		i;
-	int		count;
 	int		ret;
+	int		count;
 	char	*line = NULL;
-	char	*map[50];
+	char	**map;
 
 	count = 0;
-	if ((fd = open(av[1], O_RDONLY, 0700)) == -1)
-   {
-       printf("could not open file\n");
-       return (0);
-   }
-	while ((ret = get_next_line(fd, &line)) > 0)
+	ret = 1;
+	map = (char**)malloc(sizeof(map) *(100));
+	while (ret > 0)
 	{
-		map[count] = ft_strnew(0);
+		//dprintf(2, "\n\n\n<<TEST>>\n\n\n");
+		ret = get_next_line(0, &line);
+		//dprintf(2, "%d\n", ret);
 		map[count] = ft_strjoin(map[count], line);
-		//printf("%s\n", map[count]);
+		//dprintf(2, "%s", line);
+		//dprintf(2, "\n\n\nLINE: <<<%s>>>\n\n\n", line);
+		//dprintf(2, "\n\n\nMAP[count]: <<<%s>>>\n\n\n", map[count]);
 		count++;
 	}
+	//dprintf(2, "\n\n\nMAP[count]: <<<%s>>>\n\n\n", map[count]);
 	map[count] = NULL;
-	filler(map);
-	//printf("%s", map[--count]);
+	return(0);
 }
