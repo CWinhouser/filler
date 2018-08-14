@@ -23,8 +23,11 @@ typedef struct s_map
 
 typedef struct s_game
 {
+	char	**piece;
 	char	**map;
-	int		player;
+	int	player;
+	int	piece_x;
+	int	piece_y;
 } t_game;	 
 
 char	*filler();
