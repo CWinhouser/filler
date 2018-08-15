@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 09:48:42 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/13 14:50:52 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/15 16:02:08 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ typedef struct s_game
 	int	player;
 	int	piece_x;
 	int	piece_y;
-} t_game;	 
+} t_game;
 
-char	*filler();
+void	ft_getplayer(void);
+void	ft_plateau(void);
+void	ft_map(void);
 
 #endif
