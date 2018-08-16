@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 09:48:42 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/15 16:02:08 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/16 16:23:07 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,28 @@
 
 typedef struct s_map
 {
-	int	x_map;
-	int	y_map;
+	int		x_map;
+	int		y_map;
+	int		x_dots;
+	int		y_dots;
+	char	**store;
 } t_map;
 
 typedef struct s_game
 {
 	char	**piece;
 	char	**map;
-	int	player;
-	int	piece_x;
-	int	piece_y;
+	int		player;
+	int		piece_x;
+	int		piece_y;
+	int		place_x;
+	int		place_y;
 } t_game;
 
-void	ft_getplayer(void);
-void	ft_plateau(void);
-void	ft_map(void);
+t_game	ft_getplayer(t_game game);
+t_map	ft_plateau(t_map map);
+t_game	ft_map(t_game game);
+t_game	ft_piece(t_game game);
+void	ft_place(t_game game);
 
 #endif
