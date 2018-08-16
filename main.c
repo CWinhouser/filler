@@ -30,11 +30,13 @@ int	main (void)
 		map = ft_plateau(map);
 		game = ft_map(game);
 		game = ft_piece(game);
+//		ft_place(game);
+//		ft_place(game);
+//		if(ft_place(game) == 0)
+//		{
+//			break;
+//		}
 		ft_place(game);
-		if(ft_place(game) == 0)
-		{
-			break;
-		}
 	}
 	return(0);
 }

@@ -31,6 +31,8 @@ typedef struct s_game
 	int		player;
 	int		piece_x;
 	int		piece_y;
+	int		trim_x;
+	int		trim_y;
 	int		place_x;
 	int		place_y;
 } t_game;
@@ -40,5 +42,8 @@ t_map	ft_plateau(t_map map);
 t_game	ft_map(t_game game);
 t_game	ft_piece(t_game game);
 void	ft_place(t_game game);
+int	ft_convert(int i);
+t_game ft_trim(t_game game);
+
 
 #endif

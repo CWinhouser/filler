@@ -58,8 +58,8 @@ t_game	ft_map(t_game game)
 		i++;
 	}
 	size.store = ft_strsplit(line, ' ');
-    game.piece_x = ft_atoi(size.store[2]);
-    game.piece_y = ft_atoi(size.store[1]);
+	game.piece_x = ft_atoi(size.store[2]);
+	game.piece_y = ft_atoi(size.store[1]);
 	return(game);
 }
 
@@ -70,7 +70,7 @@ t_game	ft_piece(t_game game)
 	char	*line = NULL;
 
 	i = 0;
-    game.piece = (char**)malloc(sizeof(char*) * game.piece_y + 1);
+	game.piece = (char**)malloc(sizeof(char*) * game.piece_y + 1);
 	while (i < game.piece_y)
 	{
 		get_next_line(0, &line);	
@@ -82,35 +82,75 @@ t_game	ft_piece(t_game game)
 }
 	
 /* Place */
-int		ft_place(t_game game)
+void		ft_place(t_game game)
 {
 	int		inner;
 	int		outer;
 
 	inner = 0;
 	outer = 0;
-	ft_trim_x(game.piece);
-	ft_trim_y(game.piece);
-	while
-}
-
-t_game	ft_trim_x(t_game game)
-{
-	int		inner;
-	int		outer;
-
-	inner = 0;
-	outer = 0;
-	while
+	ft_trim(game);
+	//while
+	//{
+	//}
+	ft_putnbr(8);
+	ft_putchar(' ');
+	ft_putnbr(2);
+	ft_putchar('\n');
 }
 
 t_game	ft_trim(t_game game)
 {
-	int		inner;
 	int		outer;
+	int		inner;
+	int		i;
 
+	i = 0;
 	inner = 0;
 	outer = 0;
-	while
+	while(outer >= game.piece_y)
+	{
+		while(inner >= game.piece_x)
+		{
+			if(ft_convert(game.piece[outer][inner]) == game.player)
+			{
+				game.trim_x = inner;
+				break;
+			}
+			inner++;
+		}
+		outer++;
+	}
+	game.trim_y = outer;
+	dprintf(2, "%d\n\n\n", game.piece_y);
+	dprintf(2, "%d\n\n\n", game.trim_y);
+	//dprintf(2, "%d\n\n\n", game.trim_x);
+	//while(i > game.piece_y)
+	//{
+	//	dprintf(2, "_____________%s__________", game.piece[i]);
+	//	i++;
+	//}
+	return(game);
 }
 
+int	ft_convert(int i)
+{
+	if(i == 'x' || i == 'X')
+		return(1);
+	if(i == 'o' || i == 'O')
+		return(2);
+	return(0);
+}
+	
+
+/*t_game	ft_trim_y(t_game game)
+{
+	int		outer;
+
+	outer = 0;
+	while(outer >= game.piece_y)
+	{
+		if(ft_convert(piece[outer]) == game.player)
+			break;
+		
+}*/
