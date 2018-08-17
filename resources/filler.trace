@@ -1,5 +1,5 @@
-seed = 537
-../a.out: Segfault at 3
-players/abanlin.filler won
+seed = 3119
+X: error on input
+../a.out won
 Score:
-3AGAINST135
+27AGAINST106
