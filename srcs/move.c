@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 09:48:31 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/17 16:18:16 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/20 13:31:38 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_maploop(t_map map, t_game game)
 
 	i = 0;
 	n = 0;
+	game.topscore = 0;
 	while (i < map.y_map - game.piece_y)
 	{
 		n = 0;
@@ -27,17 +28,15 @@ int		ft_maploop(t_map map, t_game game)
 		{
 			if (ft_overlap(game, i, n) == 1)
 			{
-				ft_putnbr(i);
-				ft_putchar(' ');
-				ft_putnbr(n);
-				ft_putchar('\n');
-				return (1);
+				game = ft_score(i, n, map, game);
 			}
 			n++;
 		}
 		i++;
 	}
-	return (0);
+	if (game.topscore == 0)
+		return (0);
+	return (place(game));
 }
 
 int		ft_overlap(t_game game, int i, int n)
@@ -63,6 +62,7 @@ int		ft_overlap(t_game game, int i, int n)
 			}
 			b++;
 		}
+		//dprintf(2, "%d %d-%d\n", over, i, n);
 		a++;
 	}
 	return (over);
@@ -79,4 +79,13 @@ int		ft_convert(t_game game, char c)
 	if (c == 'o' || c == 'O')
 		return (2);
 	return (0);
+}
+
+int		place(t_game game)
+{
+	ft_putnbr(game.place_y);
+	ft_putchar(' ');
+	ft_putnbr(game.place_x);
+	ft_putchar('\n');
+	return (1);
 }

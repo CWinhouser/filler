@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 09:48:31 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/17 16:17:48 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/20 13:04:11 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,4 @@ t_game	ft_piece(t_game game)
 	}
 	i = 0;
 	return (game);
-}
-
-int		ft_place(t_map map, t_game game)
-{
-	if (ft_maploop(map, game) == 0)
-		return (0);
-	return (1);
 }

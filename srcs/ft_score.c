@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_score.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 11:28:40 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/20 13:12:20 by ktwomey          ###   ########.fr       */
+/*   Created: 2018/08/20 11:08:55 by ktwomey           #+#    #+#             */
+/*   Updated: 2018/08/20 13:37:33 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stdio.h"
 #include "filler.h"
-#include <fcntl.h>
-#include <stdio.h>
 
-int	main(void)
+int		ft_abs(int a, int b)
 {
-	t_game	game;
-	t_map	map;
+	if (a < b)
+		return (a - b);
+	else
+		return (b - a);
+}
 
-	game.init = 0;
-	map.init = 0;
-	game = ft_getplayer(game);
-	while (1)
+t_game	ft_score(int n, int i, t_map map, t_game game)
+{
+	int		mid_h;
+	int		mid_w;
+
+	mid_h = map.y_map / 2;
+	mid_w = map.x_map / 2;
+	game.score = 2000 + (ft_abs(mid_h, i) -	ft_abs(mid_w, n));
+	if (game.topscore < game.score)
 	{
-		map = ft_plateau(map);
-		game = ft_map(map, game);
-		game = ft_piece(game);
-		if (ft_maploop(map, game) == 0)
-			break ;
+		game.topscore = game.score;
+		game.place_x = i;
+		game.place_y = n;
 	}
-	return (0);
+	return (game);
 }
