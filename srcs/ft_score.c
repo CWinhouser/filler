@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 11:08:55 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/20 13:37:33 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/20 16:56:52 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_game	ft_score(int n, int i, t_map map, t_game game)
 
 	mid_h = map.y_map / 2;
 	mid_w = map.x_map / 2;
-	game.score = 2000 + (ft_abs(mid_h, i) -	ft_abs(mid_w, n));
+	game.score = 2000 + (ft_abs(mid_w, n) + ft_abs(mid_h, i));
 	if (game.topscore < game.score)
 	{
 		game.topscore = game.score;

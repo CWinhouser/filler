@@ -6,7 +6,7 @@
 /*   By: ktwomey <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 09:48:31 by ktwomey           #+#    #+#             */
-/*   Updated: 2018/08/20 13:31:38 by ktwomey          ###   ########.fr       */
+/*   Updated: 2018/08/20 16:56:57 by ktwomey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int		ft_maploop(t_map map, t_game game)
 	i = 0;
 	n = 0;
 	game.topscore = 0;
-	while (i < map.y_map - game.piece_y)
+	while (i <= map.y_map - game.piece_y)
 	{
 		n = 0;
-		while (n < map.x_map - game.piece_x)
+		while (n <= map.x_map - game.piece_x)
 		{
 			if (ft_overlap(game, i, n) == 1)
 			{
